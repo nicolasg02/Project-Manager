@@ -3,7 +3,7 @@ import Project from './Project';
 function Home() {
   return (
     <div className="max-h-screen overflow-y-scroll flex-1">
-      <div className="max-w-4xl mx-auto flex flex-col space-y-4 h-screen py-2 px-2 xl:px-0">
+      <div className="max-w-4xl mx-auto flex flex-col space-y-4 py-2 px-2 xl:px-0">
         {/* Title */}
         <div className="text-center py-6 space-y-4">
           <h1 className="text-3xl">Welcome, guest.</h1>
