@@ -1,16 +1,16 @@
 import Head from 'next/head';
 
-import Navbar from '../components/Navbar';
-import Home from '../components/Home';
+import Navbar from '../components/navigation/Navbar';
+import Home from '../components/Home/Home';
 
 export default function index() {
   return (
     <div className="bg-white min-h-screen">
       <Head>
-        <title>Nicolas Garcia | Frontend Developer</title>
+        <title>Project Manager v0.1</title>
         <meta
           name="description"
-          content="Personal portfolio, web development / frontend developer."
+          content="Project Manager for web developent applications."
         />
         <link rel="icon" href="/code.svg" />
       </Head>

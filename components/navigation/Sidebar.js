@@ -31,27 +31,7 @@ function Sidebar() {
         <nav className="space-y-3">
           <a
             href="#"
-            className="bg-gray-200 flex space-x-2 py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 hover:text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-              />
-            </svg>
-            <span>New Project</span>
-          </a>
-          <a
-            href="#"
-            className="bg-gray-200 flex space-x-2 py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 hover:text-white"
+            className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +51,27 @@ function Sidebar() {
           </a>
           <a
             href="#"
-            className="bg-red-200 flex space-x-2 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
+            className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              />
+            </svg>
+            <span>New Project</span>
+          </a>
+          <a
+            href="#"
+            className="bg-red-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-red-300 hover:text-black"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
