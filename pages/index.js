@@ -1,11 +1,11 @@
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar';
-import Header from '../components/Header';
+import Home from '../components/Home';
 
 export default function index() {
   return (
-    <div className="min-h-screen bg-gray-50 px-2">
+    <div className="bg-white min-h-screen">
       <Head>
         <title>Nicolas Garcia | Frontend Developer</title>
         <meta
@@ -14,8 +14,10 @@ export default function index() {
         />
         <link rel="icon" href="/code.svg" />
       </Head>
-      <Navbar />
-      <Header />
+      <div className="relative min-h-screen md:flex">
+        <Navbar />
+        <Home />
+      </div>
     </div>
   );
 }

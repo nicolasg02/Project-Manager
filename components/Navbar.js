@@ -1,18 +1,22 @@
 import { useState } from 'react';
 
 import MobileMenu from './MobileMenu';
+import Sidebar from './Sidebar';
 
 function Navbar() {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
   return (
-    <nav className="bg-gray-100 fixed inset-x-0 top-0 h-16 py-2 z-50">
-      <div className="h-full flex justify-between items-center px-2">
-        {/* Brand */}
-        <div className="flex space-x-2 items-center px-2">
+    <>
+      <div className="bg-gray-50 text-gray-800 flex justify-between md:hidden">
+        {/* Mobile: Brand */}
+        <a
+          href="#"
+          className="flex items-center space-x-1 p-4 font-bold text-gray-700 hover:text-black"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
+            className="h-8 w-8"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -30,34 +34,33 @@ function Navbar() {
               d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
             />
           </svg>
-          <span className="text-xl">Project Manager</span>
-        </div>
 
-        {/* Mobile: Menu button */}
-        <div className="flex items-center">
-          <button
-            className="p-2"
-            onClick={() => setToggleMobileMenu(!toggleMobileMenu)}
+          <span>Project Manager</span>
+        </a>
+        {/* Mobile: Menu Button */}
+        <button
+          onClick={() => setToggleMobileMenu(!toggleMobileMenu)}
+          className="p-4 text-gray-700 hover:text-black"
+        >
+          <svg
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
       </div>
-
-      {/* Mobile: Menu */}
       {toggleMobileMenu && <MobileMenu />}
-    </nav>
+      <Sidebar />
+    </>
   );
 }
 

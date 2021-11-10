@@ -1,9 +1,9 @@
 function MobileMenu() {
   return (
-    <div className="flex flex-col px-4 divide-y divide-opacity-90 border-b-4 border-gray-300 rounded-bl-3xl bg-gray-100">
+    <div className="fixed w-full flex flex-col divide-y divide-opacity-90 border-b-4 border-gray-300 border-t-0 rounded-bl-3xl bg-gray-50 md:hidden">
       <a
         href="#projects"
-        className="flex items-center space-x-4 p-6 hover:text-nightOwl-white-hover transition duration-300 ease-in-out"
+        className="flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ function MobileMenu() {
       </a>
       <a
         href="#projects"
-        className="flex items-center space-x-4 p-6 hover:text-nightOwl-white-hover transition duration-300 ease-in-out"
+        className="flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ function MobileMenu() {
       </a>
       <a
         href="#projects"
-        className="flex items-center space-x-4 p-6 hover:text-nightOwl-white-hover transition duration-300 ease-in-out"
+        className="flex items-center space-x-4 p-6 hover:bg-red-200 transition duration-300 ease-in-out rounded-bl-3xl"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
