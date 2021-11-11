@@ -44,8 +44,8 @@ function MobileMenu() {
         <span>Changelog</span>
       </a>
       <a
-        href="#projects"
-        className="flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out"
+        href={null}
+        className="flex items-center text-gray-400 space-x-4 p-6 cursor-not-allowed transition duration-300 ease-in-out"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

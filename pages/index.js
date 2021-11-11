@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import Navbar from '../components/navigation/Navbar';
 import Home from '../components/Home/Home';
+import Overview from '../components/Overview/Overview';
+import Changelog from '../components/Overview/Changelog';
 
 export default function index() {
   return (
@@ -16,7 +18,10 @@ export default function index() {
       </Head>
       <div className="relative min-h-screen md:flex">
         <Navbar />
-        <Home />
+        {/* <Home /> */}
+        {/* <Overview /> */}
+        {/* <Changelog /> */}
+        STACK
       </div>
     </div>
   );

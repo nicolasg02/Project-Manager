@@ -73,8 +73,8 @@ function Sidebar() {
             <span>Changelog</span>
           </a>
           <a
-            href="#"
-            className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
+            href={null}
+            className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded text-gray-400 transition ease-out duration-200 cursor-not-allowed"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
