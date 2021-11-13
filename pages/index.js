@@ -20,8 +20,7 @@ export default function index() {
         <Navbar />
         {/* <Home /> */}
         {/* <Overview /> */}
-        {/* <Changelog /> */}
-        STACK
+        <Changelog />
       </div>
     </div>
   );
