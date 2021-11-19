@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-import RegisterOrLogin from '../components/RegisterOrLogin';
+import Layout from '../components/Layout';
+import Home from './home';
 
 export default function index() {
   return (
@@ -13,7 +14,9 @@ export default function index() {
         />
         <link rel="icon" href="/code.svg" />
       </Head>
-      <RegisterOrLogin />
+      <Layout>
+        <Home />
+      </Layout>
     </div>
   );
 }

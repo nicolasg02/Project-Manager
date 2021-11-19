@@ -1,4 +1,4 @@
-import Accordion from './Accordion';
+import Accordion from '../../../../components/changelog/Accordion';
 
 function Changelog() {
   return (
