@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import firebaseApp from '../firebase-config';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+const auth = getAuth(firebaseApp);
+import { useState } from 'react';
 
 import Layout from '../components/Layout';
 import RegisterOrLogin from '../components/RegisterOrLogin';
-import firebaseApp from '../firebase-config';
 
 import '../styles/globals.css';
-
-const auth = getAuth(firebaseApp);
 
 function MyApp({ Component, pageProps }) {
   const [signedIn, setSignedIn] = useState(false);
