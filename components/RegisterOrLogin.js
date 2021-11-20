@@ -1,7 +1,28 @@
 import { useState } from 'react';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+
+import firebaseApp from '../firebase-config';
+
+const auth = getAuth(firebaseApp);
 
 function RegisterOrLogin() {
   const [login, setLogin] = useState(true);
+
+  const handleFormAuth = async (e) => {
+    e.preventDefault();
+    const email = e.target.emailForm.value;
+    const password = e.target.passwordForm.value;
+
+    if (login) {
+      await signInWithEmailAndPassword(auth, email, password);
+    } else {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+    }
+  };
 
   return (
     <div className="h-screen flex justify-center items-center bg-gray-50">
@@ -28,9 +49,10 @@ function RegisterOrLogin() {
           </button>
         </div>
         <div className="mt-8">
-          <form action="#" autoComplete="off">
+          {/* Form */}
+          <form onSubmit={handleFormAuth} autoComplete="off">
             <div className="flex flex-col mb-2">
-              <div className="flex relative ">
+              <div className="flex relative">
                 <span className="rounded-l inline-flex items-center px-3 border-t bg-white border-l border-b border-gray-300 text-gray-500 shadow-sm text-sm">
                   <svg
                     width={15}
@@ -44,7 +66,7 @@ function RegisterOrLogin() {
                 </span>
                 <input
                   type="text"
-                  id="sign-in-email"
+                  id="emailForm"
                   className=" rounded-r flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="Your email"
                 />
@@ -65,7 +87,7 @@ function RegisterOrLogin() {
                 </span>
                 <input
                   type="password"
-                  id="sign-in-email"
+                  id="passwordForm"
                   className=" rounded-r flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="Your password"
                 />

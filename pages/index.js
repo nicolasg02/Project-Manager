@@ -1,11 +1,10 @@
 import Head from 'next/head';
 
-import Layout from '../components/Layout';
 import Home from './home';
 
 export default function index() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white max-h-screen overflow-y-scroll flex-1">
       <Head>
         <title>Project Manager v0.1</title>
         <meta
@@ -14,31 +13,7 @@ export default function index() {
         />
         <link rel="icon" href="/code.svg" />
       </Head>
-      <Layout>
-        <Home />
-      </Layout>
+      <Home />
     </div>
   );
 }
-
-// export default function index() {
-//   return (
-//     <div className="bg-white min-h-screen">
-//       <Head>
-//         <title>Project Manager v0.1</title>
-//         <meta
-//           name="description"
-//           content="Project Manager for web developent applications."
-//         />
-//         <link rel="icon" href="/code.svg" />
-//       </Head>
-//       <div className="relative min-h-screen md:flex">
-//         <Navbar />
-//         {/* <Home /> */}
-//         {/* <Overview /> */}
-//         {/* <Changelog /> */}
-//         STACK
-//       </div>
-//     </div>
-//   );
-// }

@@ -3,9 +3,8 @@ import fakeData from '../data/fakeData';
 import Project from '../components/home/Project';
 
 function Home() {
-  console.log(fakeData);
   return (
-    <div className="max-h-screen overflow-y-scroll flex-1">
+    <div>
       <div className="max-w-4xl mx-auto flex flex-col space-y-4 p-2 xl:px-0">
         {/* Title */}
         <div className="text-center py-6 space-y-4">
@@ -16,7 +15,7 @@ function Home() {
             of using.
           </p>
         </div>
-        {/* Upload */}
+        {/* Start new project */}
         <div className="flex justify-center">
           <button
             type="submit"
@@ -36,7 +35,7 @@ function Home() {
                 d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
               />
             </svg>
-            <span>Create New Project</span>
+            <span>Start New Project</span>
           </button>
         </div>
         {/* Projects List */}
