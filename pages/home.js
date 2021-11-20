@@ -1,6 +1,6 @@
 import fakeData from '../data/fakeData';
 
-import Project from '../components/home/Project';
+import Project from '../components/asd/Project';
 
 function Home() {
   return (
