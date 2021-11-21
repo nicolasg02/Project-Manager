@@ -7,6 +7,8 @@ import firebaseApp from '../../firebase-config';
 const auth = getAuth(firebaseApp);
 
 function MobileMenu() {
+  const [projectView, setProjectView] = useState(false);
+
   return (
     <div className="fixed w-full flex flex-col divide-y divide-opacity-90 border-b-4 border-gray-300 border-t-0 rounded-bl-3xl bg-gray-50 md:hidden">
       <a
