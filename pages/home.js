@@ -4,7 +4,7 @@ import Project from '../components/home/Project';
 
 function Home() {
   return (
-    <div>
+    <>
       <div className="max-w-4xl mx-auto flex flex-col space-y-4 p-2 xl:px-0">
         {/* Title */}
         <div className="text-center py-6 space-y-4">
@@ -48,7 +48,7 @@ function Home() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
