@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { getAuth, signOut } from '@firebase/auth';
 import firebaseApp from '../../firebase-config';
 
