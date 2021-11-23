@@ -7,13 +7,13 @@ import firebaseApp from '../../firebase-config';
 const auth = getAuth(firebaseApp);
 
 function Sidebar() {
-  const [projectView, setProjectView] = useState(true);
+  const [projectView, setProjectView] = useState(false);
 
   const router = useRouter();
   const { id } = router.query;
 
   useEffect(() => {
-    router.pathname === '/' ? setProjectView(false) : setProjectView(true);
+    router.pathname !== '/' ? setProjectView(true) : setProjectView(false);
   }, [router.pathname]);
 
   return (
