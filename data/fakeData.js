@@ -1,3 +1,4 @@
+// array of projects
 const fakeData = [
   {
     id: 0,

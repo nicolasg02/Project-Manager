@@ -1,26 +1,33 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import firebaseApp from '../firebase-config';
-const auth = getAuth(firebaseApp);
-
 import { useState } from 'react';
 
-import RegisterOrLogin from '../components/RegisterOrLogin';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import firebaseApp from '../firebase-config';
 
+import RegisterOrLogin from '../components/RegisterOrLogin';
 import { UserContext } from '../context/UserContext';
 
 import '../styles/globals.css';
 
+const auth = getAuth(firebaseApp);
+
 function MyApp({ Component, pageProps }) {
   const [signedIn, setSignedIn] = useState(false);
+  const [globalUser, setGlobalUser] = useState(null);
   const [toggleModal, setToggleModal] = useState(false);
 
   onAuthStateChanged(auth, (currentUser) => {
-    currentUser ? setSignedIn(true) : setSignedIn(false);
+    if (currentUser) {
+      setGlobalUser(currentUser);
+      setSignedIn(true);
+    } else {
+      setGlobalUser(null);
+      setSignedIn(false);
+    }
   });
 
   if (signedIn) {
     return (
-      <UserContext.Provider value={{ toggleModal, setToggleModal }}>
+      <UserContext.Provider value={{ toggleModal, setToggleModal, globalUser }}>
         <Component {...pageProps} />
       </UserContext.Provider>
     );
@@ -28,19 +35,5 @@ function MyApp({ Component, pageProps }) {
     return <RegisterOrLogin />;
   }
 }
-
-// function MyApp({ Component, pageProps }) {
-//   const [signedIn, setSignedIn] = useState(false);
-
-//   onAuthStateChanged(auth, (currentUser) => {
-//     currentUser ? setSignedIn(true) : setSignedIn(false);
-//   });
-
-//   if (signedIn) {
-//     return <Component {...pageProps} />;
-//   } else {
-//     return <RegisterOrLogin />;
-//   }
-// }
 
 export default MyApp;
