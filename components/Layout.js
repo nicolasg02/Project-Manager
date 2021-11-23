@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 import Modal from './Modal';
 import Navbar from '../components/navigation/Navbar';
 
 function Layout(props) {
-  const [toggleModal, setToggleModal] = useState(false);
+  const { toggleModal } = useContext(UserContext);
 
   return (
     <>

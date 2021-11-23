@@ -1,8 +1,17 @@
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+
 import fakeData from '../data/fakeData';
 
 import Project from '../components/home/Project';
 
 function Home() {
+  const { setToggleModal } = useContext(UserContext);
+
+  const handleStartProject = () => {
+    setToggleModal(true);
+  };
+
   return (
     <>
       <div className="max-w-4xl mx-auto flex flex-col space-y-4 p-2 xl:px-0">
@@ -18,6 +27,7 @@ function Home() {
         {/* Start new project */}
         <div className="flex justify-center">
           <button
+            onClick={handleStartProject}
             type="submit"
             className="p-4 max-w-xl bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-out duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded flex items-center justify-center space-x-2"
           >
