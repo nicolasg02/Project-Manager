@@ -3,11 +3,14 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithRedirect,
+  GoogleAuthProvider,
 } from 'firebase/auth';
 
 import firebaseApp from '../firebase-config';
 
 const auth = getAuth(firebaseApp);
+const googleProvider = new GoogleAuthProvider();
 
 function RegisterOrLogin() {
   const [login, setLogin] = useState(true);
@@ -32,6 +35,7 @@ function RegisterOrLogin() {
         </div>
         <div className="flex gap-4 item-center">
           <button
+            onClick={() => signInWithRedirect(auth, googleProvider)}
             type="button"
             className="py-2 px-4 flex justify-center items-center bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded"
           >
