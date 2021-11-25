@@ -14,6 +14,7 @@ const auth = getAuth(firebaseApp);
 function MyApp({ Component, pageProps }) {
   const [signedIn, setSignedIn] = useState(false);
   const [globalUser, setGlobalUser] = useState(null);
+  const [projectsArray, setProjectsArray] = useState(null);
   const [toggleModal, setToggleModal] = useState(false);
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -28,7 +29,15 @@ function MyApp({ Component, pageProps }) {
 
   if (signedIn) {
     return (
-      <UserContext.Provider value={{ toggleModal, setToggleModal, globalUser }}>
+      <UserContext.Provider
+        value={{
+          projectsArray,
+          setProjectsArray,
+          toggleModal,
+          setToggleModal,
+          globalUser,
+        }}
+      >
         <Layout>
           <Component {...pageProps} />
         </Layout>

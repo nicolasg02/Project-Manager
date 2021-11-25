@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { FaGithub } from 'react-icons/fa';
 
-function Project({ id, name, repository, live }) {
+function Project({ id, name, repository, live, handleDeleteProject }) {
   return (
     <div className="w-full flex flex-col my-5">
       <div className="flex justify-between px-5">
@@ -40,7 +40,10 @@ function Project({ id, name, repository, live }) {
             </a>
           </Link>
         </div>
-        <button className="text-sm text-red-400 hover:text-red-500 flex space-x-1 items-center">
+        <button
+          onClick={() => handleDeleteProject(id)}
+          className="text-sm text-red-400 hover:text-red-500 flex space-x-1 items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4"

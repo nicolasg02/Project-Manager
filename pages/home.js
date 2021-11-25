@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
 import firebaseApp from '../firebase-config';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
@@ -14,8 +14,8 @@ import { UserContext } from '../context/UserContext';
 const firestore = getFirestore(firebaseApp);
 
 function Home() {
-  const [projectsArray, setprojectsArray] = useState(null);
-  const { setToggleModal, globalUser } = useContext(UserContext);
+  const { setToggleModal, globalUser, projectsArray, setProjectsArray } =
+    useContext(UserContext);
 
   const searchOrCreateDocument = async (documentId) => {
     const documentRef = doc(firestore, `usuarios/${documentId}`);
@@ -37,7 +37,7 @@ function Home() {
   useEffect(() => {
     const fetchDocument = async () => {
       const fetchedProjects = await searchOrCreateDocument(globalUser.email);
-      setprojectsArray(fetchedProjects);
+      setProjectsArray(fetchedProjects);
     };
 
     fetchDocument();
@@ -50,7 +50,13 @@ function Home() {
 
       <hr className="border-gray-400 my-16" />
 
-      {projectsArray ? <ProjectList projectsArray={projectsArray} /> : null}
+      {projectsArray ? (
+        <ProjectList
+          projectsArray={projectsArray}
+          setProjectsArray={setProjectsArray}
+          userEmail={globalUser.email}
+        />
+      ) : null}
     </div>
   );
 }
