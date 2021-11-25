@@ -44,9 +44,12 @@ function Home() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto flex flex-col space-y-4 p-2 xl:px-0">
+    <div className="max-w-4xl mx-auto flex flex-col p-2 xl:px-0 min-h-screen">
       <Header globalUser={globalUser} />
       <StartNewProjectBtn handleStartProject={handleStartProject} />
+
+      <hr className="border-gray-400 my-16" />
+
       {projectsArray ? <ProjectList projectsArray={projectsArray} /> : null}
     </div>
   );

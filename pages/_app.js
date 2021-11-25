@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import firebaseApp from '../firebase-config';
 
+import Layout from '../components/Layout';
 import RegisterOrLogin from '../components/RegisterOrLogin';
 import { UserContext } from '../context/UserContext';
 
@@ -28,7 +29,9 @@ function MyApp({ Component, pageProps }) {
   if (signedIn) {
     return (
       <UserContext.Provider value={{ toggleModal, setToggleModal, globalUser }}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </UserContext.Provider>
     );
   } else {
