@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getAuth, signOut } from '@firebase/auth';
 import firebaseApp from '../../firebase-config';
 
+import { UserContext } from '../../context/UserContext';
+
 const auth = getAuth(firebaseApp);
 
 function Sidebar() {
   const [projectView, setProjectView] = useState(false);
+  const { handleStartProject } = useContext(UserContext);
 
   const router = useRouter();
   const { id } = router.query;
@@ -204,9 +207,9 @@ function Sidebar() {
             </>
           ) : (
             <>
-              <a
-                href="#"
-                className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
+              <button
+                onClick={handleStartProject}
+                className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black w-full"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +227,7 @@ function Sidebar() {
                 </svg>
 
                 <span>Start new project</span>
-              </a>
+              </button>
             </>
           )}
           <button
