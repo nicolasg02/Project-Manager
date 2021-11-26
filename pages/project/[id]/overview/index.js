@@ -7,7 +7,7 @@ function Overview() {
   const { id } = router.query;
 
   return (
-    <div className="max-h-screen overflow-y-scroll flex-1">
+    <div className="max-h-screen md:overflow-y-scroll flex-1">
       <div className="max-w-4xl mx-auto py-10 px-2 xl:px-0">
         {/* Project Name */}
         <div>

@@ -50,10 +50,7 @@ function Sidebar() {
           {projectView ? (
             <>
               <Link href="/">
-                <a
-                  href="#"
-                  className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
-                >
+                <a className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -77,10 +74,7 @@ function Sidebar() {
                 href="/project/[id]/overview"
                 as={`/project/${id}/overview`}
               >
-                <a
-                  href="#"
-                  className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
-                >
+                <a className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -104,10 +98,7 @@ function Sidebar() {
                 href="/project/[id]/changelog"
                 as={`/project/${id}/changelog`}
               >
-                <a
-                  href="#"
-                  className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black"
-                >
+                <a className="bg-gray-100 flex space-x-2 py-2.5 px-4 rounded transition ease-out duration-200 hover:bg-gray-200 hover:text-black">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"

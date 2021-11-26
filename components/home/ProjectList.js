@@ -11,11 +11,11 @@ function ProjectList({ projectsArray, setProjectsArray, userEmail }) {
       (project) => project.id !== projectId
     );
 
-    // update on firebase
+    // update firebase
     const documentRef = doc(firestore, `usuarios/${userEmail}`);
     updateDoc(documentRef, { projects: [...filteredProjects] });
 
-    // update on app
+    // update state
     setProjectsArray(filteredProjects);
   };
 

@@ -8,8 +8,6 @@ import { getFirestore, updateDoc, doc } from 'firebase/firestore';
 
 const firestore = getFirestore(firebaseApp);
 
-// context: globalUser.email, projectsArray, setProjectsArray
-
 function Modal() {
   const { setToggleModal, globalUser, projectsArray, setProjectsArray } =
     useContext(UserContext);
@@ -44,7 +42,7 @@ function Modal() {
     const documentRef = doc(firestore, `usuarios/${globalUser.email}`);
     updateDoc(documentRef, { projects: [...updatedProjectsArray] });
 
-    // update app
+    // update state
     setProjectsArray(updatedProjectsArray);
   };
 

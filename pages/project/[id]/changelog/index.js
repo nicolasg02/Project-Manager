@@ -2,8 +2,8 @@ import Accordion from '../../../../components/changelog/Accordion';
 
 function Changelog() {
   return (
-    <div className="max-h-screen overflow-y-scroll flex-1">
-      <div className="max-w-4xl mx-auto my-10 px-2 xl:px-0 p-10 flex flex-col space-y-10">
+    <div className="max-h-screen md:overflow-y-scroll flex-1">
+      <div className="max-w-4xl mx-auto px-2 xl:px-0 flex flex-col space-y-10">
         <h1 className="text-4xl">Changelog</h1>
         <hr className="border-gray-700" />
         <div className="flex flex-col space-y-2 bg-gray-100 p-5 rounded jusitfy-around">

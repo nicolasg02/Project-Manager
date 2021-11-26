@@ -1,4 +1,9 @@
-function StartNewProjectBtn({ handleStartProject }) {
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+
+function StartNewProjectBtn() {
+  const { handleStartProject } = useContext(UserContext);
+
   return (
     <div className="flex justify-center">
       <button

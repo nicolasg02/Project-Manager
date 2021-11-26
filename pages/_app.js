@@ -17,6 +17,10 @@ function MyApp({ Component, pageProps }) {
   const [projectsArray, setProjectsArray] = useState(null);
   const [toggleModal, setToggleModal] = useState(false);
 
+  const handleStartProject = () => {
+    setToggleModal(true);
+  };
+
   onAuthStateChanged(auth, (currentUser) => {
     if (currentUser) {
       setGlobalUser(currentUser);
@@ -36,6 +40,7 @@ function MyApp({ Component, pageProps }) {
           toggleModal,
           setToggleModal,
           globalUser,
+          handleStartProject,
         }}
       >
         <Layout>

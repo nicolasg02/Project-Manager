@@ -14,7 +14,7 @@ import { UserContext } from '../context/UserContext';
 const firestore = getFirestore(firebaseApp);
 
 function Home() {
-  const { setToggleModal, globalUser, projectsArray, setProjectsArray } =
+  const { globalUser, projectsArray, setProjectsArray, handleStartProject } =
     useContext(UserContext);
 
   const searchOrCreateDocument = async (documentId) => {
@@ -27,11 +27,6 @@ function Home() {
       await setDoc(documentRef, { projects: [...fakeData] });
       const query = await getDoc(documentRef);
     }
-  };
-
-  // "Start new project" button.
-  const handleStartProject = () => {
-    setToggleModal(true);
   };
 
   useEffect(() => {
