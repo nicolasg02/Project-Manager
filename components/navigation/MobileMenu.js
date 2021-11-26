@@ -54,7 +54,9 @@ function MobileMenu({ handleMobileMenu }) {
           <Link href="/project/[id]/overview" as={`/project/${id}/overview`}>
             <a
               onClick={handleMobileMenu}
-              className="flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out"
+              className={`flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out ${
+                router.pathname === '/project/[id]/overview' && 'bg-gray-200'
+              }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +79,9 @@ function MobileMenu({ handleMobileMenu }) {
           <Link href="/project/[id]/changelog" as={`/project/${id}/changelog`}>
             <a
               onClick={handleMobileMenu}
-              className="flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out"
+              className={`flex items-center space-x-4 p-6 hover:bg-gray-200 transition duration-300 ease-in-out ${
+                router.pathname === '/project/[id]/changelog' && 'bg-gray-200'
+              }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
