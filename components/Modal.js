@@ -105,12 +105,13 @@ function Modal() {
               </div>
               <div className="w-full">
                 <div className="relative space-y-1">
-                  <label>Github repository (optional)</label>
+                  <label>Github repository (Required)</label>
                   <input
                     type="text"
                     id="repositoryForm"
                     className="rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Repository link"
+                    required
                   />
                 </div>
               </div>

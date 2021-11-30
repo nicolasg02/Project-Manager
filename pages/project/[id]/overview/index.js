@@ -2,9 +2,13 @@ import { useRouter } from 'next/router';
 
 import { FaGithub, FaGlobe } from 'react-icons/fa';
 
+import RepoReadme from '../../../../components/overview/RepoReadme';
+
 function Overview() {
   const router = useRouter();
   const { id } = router.query;
+
+  const repoUrl = 'https://github.com/nicolasg02/Project-Manager';
 
   return (
     <div className="max-h-screen md:overflow-y-scroll flex-1">
@@ -23,7 +27,7 @@ function Overview() {
           </div>
           <div className="p-2">
             <a className="text-blue-500 hover:text-blue-600 cursor-pointer text-xs sm:text-sm overflow-x-hidden flex items-center">
-              https://github.com/nicolasg02/Project-Manager
+              {repoUrl}
             </a>
           </div>
         </div>
@@ -43,13 +47,7 @@ function Overview() {
         <hr className="border-gray-400 my-16" />
 
         {/* README */}
-        <div className="flex justify-between px-2">
-          <h2 className="text-3xl font-thin">README</h2>
-          <button>Edit</button>
-        </div>
-        <div className="bg-gray-100 rounded p-10 h-screen">
-          MARKOWN EDITOR HERE
-        </div>
+        <RepoReadme repoUrl={repoUrl} />
       </div>
     </div>
   );
