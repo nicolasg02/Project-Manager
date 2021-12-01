@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { fetchReadme } from '@varandas/fetch-readme';
 import { marked } from 'marked';
 
-function RepoReadme({ repoUrl }) {
+function RepoReadme({ projectData }) {
   const [repositoryReadme, setRepositoryReadme] = useState();
 
-  const repoUser = repoUrl.replace('https://github.com/', '').split('/')[0];
-  const repoName = repoUrl.replace('https://github.com/', '').split('/')[1];
+  const repoUser = projectData.repository
+    .replace('https://github.com/', '')
+    .split('/')[0];
+  const repoName = projectData.repository
+    .replace('https://github.com/', '')
+    .split('/')[1];
 
   useEffect(() => {
     const fetchRepoReadme = async () => {
@@ -14,12 +18,11 @@ function RepoReadme({ repoUrl }) {
         username: repoUser,
         repository: repoName,
       });
-
       setRepositoryReadme(marked(readme));
     };
 
     fetchRepoReadme();
-  }, []);
+  }, [repoUser, repoName]);
 
   return (
     <>
@@ -44,39 +47,3 @@ function RepoReadme({ repoUrl }) {
 }
 
 export default RepoReadme;
-
-// import { useState, useEffect } from 'react';
-
-// import { marked } from 'marked';
-
-// function RepoReadme({ repoUrl }) {
-//   const [repositoryReadme, setRepositoryReadme] = useState();
-
-//   const repoUser = repoUrl.replace('https://github.com/', '').split('/')[0];
-//   const repoName = repoUrl.replace('https://github.com/', '').split('/')[1];
-
-//   useEffect(() => {
-//     // const response = fetch(
-//     //   `https://raw.githubusercontent.com/${repoUser}/${repoName}/main/README.md`
-//     // )
-//     //   .then((response) => response.text())
-//     //   .then((result) => setRepositoryReadme(marked(result)));
-//     // WATCH GITHUB API TUTORIALS
-
-//     const getRepo = async () => {
-//       const response = await fetch(
-//         'https://api.github.com/repos/nicolasg02/Project-Manager'
-//       );
-//       const data = await response.json();
-//       console.log(data);
-//     };
-//   }, []);
-//   return (
-//     <div
-//       className="prose lg:prose-xl"
-//       dangerouslySetInnerHTML={{ __html: repositoryReadme }}
-//     ></div>
-//   );
-// }
-
-// export default RepoReadme;

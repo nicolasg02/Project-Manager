@@ -30,8 +30,6 @@ function Overview() {
     }
   };
 
-  const repoUrl = 'https://github.com/nicolasg02/Project-Manager';
-
   useEffect(() => {
     const fetchProject = async () => {
       await getRepositoryData(globalUser.email);
@@ -46,7 +44,7 @@ function Overview() {
         {/* Project Name */}
         <div>
           <h1 className="text-center text-3xl sm:text-4xl py-8 bg-gray-100 text-gray-800 rounded font-bold">
-            To Do App
+            {projectData && projectData.name}
           </h1>
         </div>
         {/* Repo */}
@@ -57,7 +55,7 @@ function Overview() {
           </div>
           <div className="p-2">
             <a className="text-blue-500 hover:text-blue-600 cursor-pointer text-xs sm:text-sm overflow-x-hidden flex items-center">
-              {repoUrl}
+              {projectData && projectData.repository}
             </a>
           </div>
         </div>
@@ -69,7 +67,7 @@ function Overview() {
           </div>
           <div className="p-2">
             <a className="text-blue-500 hover:text-blue-600 cursor-pointer text-xs sm:text-sm overflow-x-hidden flex items-center">
-              https://github.com/nicolasg02/Project-Manager
+              {projectData && projectData.live}
             </a>
           </div>
         </div>
@@ -77,7 +75,7 @@ function Overview() {
         <hr className="border-gray-400 my-16" />
 
         {/* README */}
-        <RepoReadme repoUrl={repoUrl} />
+        {projectData && <RepoReadme projectData={projectData} />}
       </div>
     </div>
   );
