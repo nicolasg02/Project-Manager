@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   const [signedIn, setSignedIn] = useState(false);
   const [globalUser, setGlobalUser] = useState(null);
   const [projectsArray, setProjectsArray] = useState(null);
+  const [projectData, setProjectData] = useState(null);
   const [toggleModal, setToggleModal] = useState(false);
 
   const handleStartProject = () => {
@@ -41,6 +42,8 @@ function MyApp({ Component, pageProps }) {
           setToggleModal,
           globalUser,
           handleStartProject,
+          projectData,
+          setProjectData,
         }}
       >
         <Layout>

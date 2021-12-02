@@ -1,8 +1,35 @@
+import firebaseApp from '../../firebase-config';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+
+const firestore = getFirestore(firebaseApp);
+
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+
 import Link from 'next/link';
 
 import { FaGithub } from 'react-icons/fa';
 
 function Project({ id, name, repository, live, handleDeleteProject }) {
+  const { globalUser, projectData, setProjectData } = useContext(UserContext);
+
+  const getRepositoryData = async (userId, projectId) => {
+    const documentRef = doc(firestore, `usuarios/${userId}`);
+    const query = await getDoc(documentRef);
+    if (query.exists()) {
+      const data = query.data().projects;
+      data.map((project) => {
+        if (project.id === projectId) {
+          setProjectData(project);
+        }
+      });
+    }
+  };
+
+  const fetchProject = async () => {
+    await getRepositoryData(globalUser.email, id);
+  };
+
   return (
     <div className="w-full flex flex-col my-5">
       <div className="flex justify-between px-5">
@@ -64,6 +91,7 @@ function Project({ id, name, repository, live, handleDeleteProject }) {
       </div>
       <Link href="/project/[id]/overview" as={`/project/${id}/overview`}>
         <a
+          onClick={fetchProject}
           type="submit"
           className="p-4 bg-white hover:bg-white focus:ring-gray-300 focus:ring-offset-gray-300 text-black w-full transition ease-out duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded flex items-center justify-between space-x-2"
         >

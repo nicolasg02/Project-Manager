@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import { UserContext } from '../../../../context/UserContext';
+
 import Accordion from '../../../../components/changelog/Accordion';
 
 function Changelog() {
+  const { projectData } = useContext(UserContext);
+
   return (
     <div className="max-h-screen md:overflow-y-scroll flex-1">
       <div className="max-w-4xl mx-auto px-2 xl:px-0 flex flex-col space-y-10">

@@ -1,42 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
-import { useRouter } from 'next/router';
-
-import firebaseApp from '../../../../firebase-config';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { useContext } from 'react';
+import { UserContext } from '../../../../context/UserContext';
 
 import { FaGithub, FaGlobe } from 'react-icons/fa';
 
-import { UserContext } from '../../../../context/UserContext';
 import RepoReadme from '../../../../components/overview/RepoReadme';
 
-const firestore = getFirestore(firebaseApp);
-
 function Overview() {
-  const [projectData, setProjectData] = useState(null);
-  const { globalUser } = useContext(UserContext);
-  const router = useRouter();
-  const { id } = router.query;
-
-  const getRepositoryData = async (documentId) => {
-    const documentRef = doc(firestore, `usuarios/${documentId}`);
-    const query = await getDoc(documentRef);
-    if (query.exists()) {
-      const data = query.data().projects;
-      data.map((project) => {
-        if (project.id === id) {
-          setProjectData(project);
-        }
-      });
-    }
-  };
-
-  useEffect(() => {
-    const fetchProject = async () => {
-      await getRepositoryData(globalUser.email);
-    };
-
-    fetchProject();
-  }, []);
+  const { projectData } = useContext(UserContext);
 
   return (
     <div className="max-h-screen md:overflow-y-scroll flex-1">
