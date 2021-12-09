@@ -31,7 +31,7 @@ function Modal() {
           description,
           readme: {},
         },
-        changelog: {},
+        changelog: [],
         assets: {},
         stack: {},
         todo: {},
@@ -44,6 +44,8 @@ function Modal() {
 
     // update state
     setProjectsArray(updatedProjectsArray);
+
+    setToggleModal(false);
   };
 
   return (
@@ -129,7 +131,6 @@ function Modal() {
               <div>
                 <span className="block w-full rounded shadow-sm">
                   <button
-                    onClick={() => setToggleModal(false)}
                     type="submit"
                     className="py-2 px-4  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded"
                   >

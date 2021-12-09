@@ -17,6 +17,7 @@ function Home() {
   const { globalUser, projectsArray, setProjectsArray, handleStartProject } =
     useContext(UserContext);
 
+  // Fetch projects from DB
   const searchOrCreateDocument = async (documentId) => {
     const documentRef = doc(firestore, `usuarios/${documentId}`);
     const query = await getDoc(documentRef);
