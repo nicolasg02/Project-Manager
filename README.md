@@ -3,5 +3,5 @@
 
 Account for testing purposes: 
 
-User: _hola@asd.com_
-Password: _asd123_
+User: _guest@user.com_
+Password: _guest123_
